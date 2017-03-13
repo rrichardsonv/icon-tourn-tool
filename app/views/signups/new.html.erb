@@ -1,0 +1,12 @@
+<%= form_for @signup do |f| %>
+  <%=f.collection_select(:tournament_id, @tournaments, :id, :challonge_name)  %>
+
+  <%= f.fields_for @participant do |part_form|  %>
+  <%= part_form.label 'Name or Tag (this will be displayed)'  %>
+  <%= part_form.text_field  :tag %>
+
+  <%= part_form.label 'PIN (optional)'  %>
+  <%= part_form.text_field :pin  %>
+  <%end  %>
+  <%= f.submit 'Get in the Fight!'  %>
+<% end %>
